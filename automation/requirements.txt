@@ -1,0 +1,4 @@
+# RuoYi 接口自动化测试依赖（Python 3.10+）
+pytest>=8
+requests>=2.31
+pytest-html>=4.1

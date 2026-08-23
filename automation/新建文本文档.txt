@@ -1,0 +1,12 @@
+# 用 @pytest.mark.parametrize 一次性跑多组数据
+@pytest.mark.parametrize("username, password, expected_code", [
+    ("admin", "admin123", 200),           # 正常登录
+    ("admin", "wrong", 500),              # 错误密码
+    ("", "admin123", 400),                # 空用户名
+    ("admin", "", 400),                   # 空密码
+])
+def test_login_multiple_cases(username, password, expected_code):
+    url = f"{BASE_URL}/login"
+    res = requests.post(url, json={"username": username, "password": password})
+    assert res.status_code == expected_code
+    print(f"用例: {username}/{password} → 状态码 {res.status_code}")
