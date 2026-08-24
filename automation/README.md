@@ -6,6 +6,8 @@
 覆盖登录、用户管理、边界/异常参数等核心接口，实现**一次登录复用（session 级 token 管理）、参数化数据驱动、异常自动捕获、Allure可视化报告**。
 用于沉淀 RuoYi 项目的接口测试能力，也作为接口自动化实战的作品。
 
+
+> 📊 **在线查看 Allure 报告**：https://tjkkkkklare.github.io/ruoyi-test-project/automation/allure-report/index.html
 ## 技术栈
 
 - Python 3.14（含虚拟环境 `.venv`）
@@ -64,3 +66,8 @@ allure generate allure-results -o allure-report --clean
 ## 数据一致性与数据库校验
 
 本自动化聚焦**接口层**校验；更深层的**数据库一致性校验**（MySQL 多表联查 + 聚合，比对页面值 vs 库表）见项目 `05_测试报告` 与 `03_缺陷管理` 文档。
+
+
+## 🔗 相关链接
+- [RuoYi-Vue 官方仓库](https://gitee.com/y_project/RuoYi-Vue)
+- [Allure 报告在线版](https://tjkkkkklare.github.io/ruoyi-test-project/automation/allure-report/index.html)
