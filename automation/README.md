@@ -3,7 +3,7 @@
 ## 项目简介
 
 基于 **Python + pytest + requests** 搭建的 RuoYi-Vue 后台接口自动化测试框架。
-覆盖登录、用户管理、边界/异常参数等核心接口，实现**一次登录复用（session 级 token 管理）、参数化数据驱动、异常自动捕获、HTML 可视化报告**。
+覆盖登录、用户管理、边界/异常参数等核心接口，实现**一次登录复用（session 级 token 管理）、参数化数据驱动、异常自动捕获、Allure可视化报告**。
 用于沉淀 RuoYi 项目的接口测试能力，也作为接口自动化实战的作品。
 
 ## 技术栈
@@ -11,7 +11,7 @@
 - Python 3.14（含虚拟环境 `.venv`）
 - pytest（测试框架）
 - requests（HTTP 请求）
-- pytest-html（HTML 报告）
+- allure 2.45.0
 
 ## 目录结构
 
@@ -25,26 +25,24 @@ automation/
 ├── test_boundary.py     # 边界/异常参数（记录 BUG-001：pageSize 无边界校验）
 ├── pytest.ini           # pytest 配置（报告输出、收集规则）
 ├── requirements.txt     # 依赖
-├── run_pytest.bat       # 一键运行脚本（Windows）
-└── report/report.html   # 生成的测试报告
+└── allure-report        # allure报告
 ```
 
 ## 如何运行
 
 前置：后端 RuoYi 已启动（`http://localhost:8080`），并已关闭验证码（`sys_config.sys.account.captchaEnabled=false`）。
 
-```bat
+安装依赖
+
+```bash
+pip install -r requirements.txt
+
+执行测试
 cd automation
-run_pytest.bat          # 一键运行
-```
+pytest --alluredir=allure-results --clean-alluredir
 
-或手动：
-
-```bat
-.venv\Scripts\python.exe -m pytest
-```
-
-运行后打开 `report\report.html` 查看用例结果。
+生成allure报告
+allure generate allure-results -o allure-report --clean
 
 ## 结果示例
 
